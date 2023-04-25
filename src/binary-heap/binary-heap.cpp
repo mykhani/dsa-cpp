@@ -255,6 +255,12 @@ std::vector<int> heapSort(std::vector<int> vec) {
 	return h.heapSort();
 }
 
+// K sorted array, an element in the original array
+// can be k positions off from it's original positions in the final array
+// That means item at index 0 in original array can be at 0 to k in the
+// final sorted array
+
+// idea maintain a minheap of k elements at a time
 std::vector<int> sortKSortedArray(std::vector<int> arr, int k) {
 	priority_queue<int, vector<int>, greater<int>> pq;
 	std::vector<int> result;
@@ -426,6 +432,8 @@ std::vector<int> mergeKsortedArrays(std::vector<std::vector<int> > arr) {
 	return result;
 }
 
+// median is a value that is greater than half of the values and smaller than
+// half of the values
 std::vector<double> medianOfAStream(std::vector<int> arr) {
 	// A median divides a sorted array into left and right halves
 	// where left half is less than median while right half is greater

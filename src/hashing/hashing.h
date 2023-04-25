@@ -433,6 +433,11 @@ inline int HashTableOpenAddressingDoubleHashing<Key>::probe(Key key,
 	// we can re-generate that sequence when we want to perform a lookup
 	// using key as the seed value
 
+	// The key insights:
+	// In linear probing, the address is incremented linearly when a collision occurs
+	// In quadrating probing, the address is incremented square of the number of collision
+	// In double hashing, the increment depends on the value of key
+
 	int pos = (start + i * offset) % this->slots; // initially pos = start for i = 0
 
 	// if we are searching for a key, terminate search when key is found or an empty slot is encountered

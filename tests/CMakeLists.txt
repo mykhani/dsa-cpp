@@ -14,6 +14,7 @@ set(DSA_TESTS
     mathematical_tests.cpp
     strings_tests.cpp
     tree_tests.cpp
+    dp_tests.cpp
 )
 
 add_executable(dsa-tests run-tests.cpp)

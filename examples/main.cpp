@@ -17,6 +17,7 @@
 #include "binary-search-tree/binary-search-tree.h"
 #include "binary-heap/binary-heap.h"
 #include "strings/strings.h"
+#include <backtracking/backtracking.h>
 
 using namespace std;
 
@@ -1328,6 +1329,12 @@ int main(int argc, char* argv[]) {
 		int value = 52;
 		cout << "Minimum coins in " << coins << " for value: " << value
 				<< " is " << minimumCoins(coins, value) << endl;
+	}
+
+	{
+		std::string s{"ABCD"};
+
+		cout << "Permutations of " << s << " excluding AB are " << PermutationsExcluding(s) << endl;
 	}
 
 	getchar();

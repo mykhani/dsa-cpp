@@ -235,7 +235,8 @@ int subsets_with_sum(vector<int> set, int sum)
 vector<string> permutations(string s)
 {
     vector<string> result;
-    
+    // take a character and move it accross all indices.
+    // e.g A _ _, _ A _, _ _ A (this lateral movement of A is achieved via swap)
     function<void(string, int)> helper = [&helper, &result](string s, int index) {
 //        cout << "Helper called with s " << s << " and index " << index << endl;
         // index is the current position

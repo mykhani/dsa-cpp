@@ -52,6 +52,10 @@
  * build(int arr[], int n)
  * etc
  *
+ * The important premise for Heapify, there is a Binary Heap
+ * with only 1 discrepancy i.e. one node is out of order and
+ * the rest of the tree follows the rule.
+ *
  * Advantages:
  * 1. Random access (stored as an array) O(1)
  * 2. Cache friendly (locality of reference)
