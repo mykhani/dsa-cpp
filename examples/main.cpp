@@ -23,35 +23,41 @@ using namespace std;
 
 // clang specific: the operator<< must be overloaded in its respectivce
 // namespace
-namespace std {
-template <typename T>
-std::ostream& operator<<(std::ostream& os, vector<T> vec) {
-	ssize_t size = vec.size();
+namespace std
+{
+	template <typename T>
+	std::ostream &operator<<(std::ostream &os, vector<T> vec)
+	{
+		ssize_t size = vec.size();
 
-	os << "[";
-	for (int i = 0; i < size; i++) {
-		os << vec[i];
-		if (i < size - 1)
-			os << ", ";
+		os << "[";
+		for (int i = 0; i < size; i++)
+		{
+			os << vec[i];
+			if (i < size - 1)
+				os << ", ";
+		}
+
+		os << "]" << endl;
+
+		return os;
 	}
 
-	os << "]" << endl;
-
-	return os;
-}
-
-std::ostream& operator<<(std::ostream& os, std::pair<int, int> p) {
-	os << "(" << p.first << ", " << p.second << ")" << endl;
-	return os;
-}
+	std::ostream &operator<<(std::ostream &os, std::pair<int, int> p)
+	{
+		os << "(" << p.first << ", " << p.second << ")" << endl;
+		return os;
+	}
 
 }
 
-void fun(const TreeNode<int>& i) {
+void fun(const TreeNode<int> &i)
+{
 	std::cout << i.key << " -> ";
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[])
+{
 
 	// initialize google test
 	// testing::InitGoogleTest(&argc, argv);
@@ -61,10 +67,11 @@ int main(int argc, char* argv[]) {
 	cout << "GCD of 4 and 6 is " << find_gcd(4, 6) << endl;
 	cout << "LCM of 4 and 6 is " << find_lcm(4, 6) << endl;
 
-	for (int i = 1; i <= 100; i++) {
+	for (int i = 1; i <= 100; i++)
+	{
 		cout << "Number " << i
-				<< (is_prime(i) == true ? " is prime" : " is composite")
-				<< endl;
+			 << (is_prime(i) == true ? " is prime" : " is composite")
+			 << endl;
 	}
 
 	vector<int> result = prime_factors(12);
@@ -99,15 +106,21 @@ int main(int argc, char* argv[]) {
 
 	cout << "Bit 1 of 5 is " << check_bit(5, 1) << endl;
 	cout << "Bit 2 of 8 is " << check_bit(8, 2) << endl;
-	try {
+	try
+	{
 		cout << "Bit 33 of 0 is " << check_bit(0, 33) << endl;
-	} catch (std::exception &e) {
+	}
+	catch (std::exception &e)
+	{
 		cout << e.what() << endl;
 	}
 
-	try {
+	try
+	{
 		cout << "Bit 0 of 0 is " << check_bit(0, 0) << endl;
-	} catch (std::exception &e) {
+	}
+	catch (std::exception &e)
+	{
 		cout << e.what() << endl;
 	}
 
@@ -122,31 +135,31 @@ int main(int argc, char* argv[]) {
 
 	vector<int> vec1 = {4, 3, 4, 4, 4, 5, 5};
 	cout << "Odd occuring in " << vec1 << " is " << find_odd_occurring(vec1)
-			<< endl;
+		 << endl;
 
 	vector<int> vec2 = {8, 7, 7, 8, 8};
 	cout << "Odd occuring in " << vec2 << " is " << find_odd_occurring(vec2)
-			<< endl;
+		 << endl;
 
 	vector<int> vec3 = {1, 4, 3};
 	cout << "The missing number in " << vec3 << " is "
-			<< find_missing_number(vec3) << endl;
+		 << find_missing_number(vec3) << endl;
 
 	vector<int> vec4 = {1, 5, 3, 2};
 	cout << "The missing number in " << vec4 << " is "
-			<< find_missing_number(vec4) << endl;
+		 << find_missing_number(vec4) << endl;
 
 	vector<int> vec5 = {3, 4, 3, 4, 5, 4, 4, 6, 7, 7};
 	cout << "The two odd occuring numbers in " << vec5 << " are "
-			<< find_two_odd_occurring(vec5) << endl;
+		 << find_two_odd_occurring(vec5) << endl;
 
 	vector<int> vec6 = {20, 14, 20, 16};
 	cout << "The two odd occuring numbers in " << vec6 << " are "
-			<< find_two_odd_occurring(vec6) << endl;
+		 << find_two_odd_occurring(vec6) << endl;
 
 	vector<int> vec7 = {20, 14, 20, 14};
 	cout << "The two odd occuring numbers in " << vec7 << " are "
-			<< find_two_odd_occurring(vec7) << endl;
+		 << find_two_odd_occurring(vec7) << endl;
 
 	std::string s1 = "abc";
 	cout << "Powerset of " << s1 << " is " << create_powerset(s1) << endl;
@@ -174,13 +187,12 @@ int main(int argc, char* argv[]) {
 	cout << "Sum of digits for 10: " << sum_digits(10) << endl;
 
 	cout << "Rope len 5, sizes(2,5,1) : max slices: " << cut_rope(5, {2, 5, 1})
-			<< endl;
-	cout << "Rope len 23, sizes(12,9,11) : max slices: " << cut_rope(23, {12, 9,
-			11}) << endl;
+		 << endl;
+	cout << "Rope len 23, sizes(12,9,11) : max slices: " << cut_rope(23, {12, 9, 11}) << endl;
 	cout << "Rope len 5, sizes(4,2,6) : max slices: " << cut_rope(5, {4, 2, 6})
-			<< endl;
+		 << endl;
 	cout << "Rope len 9, sizes(2,2,2) : max slices: " << cut_rope(9, {2, 2, 2})
-			<< endl;
+		 << endl;
 	cout << "Generated subsets for ABC : " << generate_subsets("ABC") << endl;
 
 	vector<string> v1 = {"", "a", "b"};
@@ -206,42 +218,42 @@ int main(int argc, char* argv[]) {
 	vector<int> set1 = {1, 2, 3};
 	int sum = 4;
 	cout << "Subsets in set " << set1 << " with sum " << sum << " are "
-			<< subsets_with_sum(set1, sum) << endl;
+		 << subsets_with_sum(set1, sum) << endl;
 
 	set1 = {10, 5, 2, 3, 6};
 	sum = 8;
 	cout << "Subsets in set " << set1 << " with sum " << sum << " are "
-			<< subsets_with_sum(set1, sum) << endl;
+		 << subsets_with_sum(set1, sum) << endl;
 
 	set1 = {10, 20, 15};
 	sum = 37;
 	cout << "Subsets in set " << set1 << " with sum " << sum << " are "
-			<< subsets_with_sum(set1, sum) << endl;
+		 << subsets_with_sum(set1, sum) << endl;
 
 	set1 = {10, 20, 15};
 	sum = 0;
 	cout << "Subsets in set " << set1 << " with sum " << sum << " are "
-			<< subsets_with_sum(set1, sum) << endl;
+		 << subsets_with_sum(set1, sum) << endl;
 
 	string str1 = "ABC";
 	cout << "Permutations for string " << str1 << " are " << permutations(str1)
-			<< endl;
+		 << endl;
 
 	str1 = "AB";
 	cout << "Permutations for string " << str1 << " are " << permutations(str1)
-			<< endl;
+		 << endl;
 
 	str1 = "A";
 	cout << "Permutations for string " << str1 << " are " << permutations(str1)
-			<< endl;
+		 << endl;
 
 	str1 = "";
 	cout << "Permutations for string " << str1 << " are " << permutations(str1)
-			<< endl;
+		 << endl;
 
 	str1 = "ABCD";
 	cout << "Permutations for string " << str1 << " are " << permutations(str1)
-			<< endl;
+		 << endl;
 
 	vec1 = {10, 5, 8, 20};
 	cout << "Vector " << vec1 << endl;
@@ -249,7 +261,7 @@ int main(int argc, char* argv[]) {
 	cout << "The largest element index: " << largestIndex(vec1) << endl;
 	cout << "The second largest element: " << secondLargest(vec1) << endl;
 	cout << "The second largest element index: " << secondLargestIndex(vec1)
-			<< endl;
+		 << endl;
 
 	vec1 = {20, 10, 20, 8, 12};
 	cout << "Vector " << vec1 << endl;
@@ -257,7 +269,7 @@ int main(int argc, char* argv[]) {
 	cout << "The largest element index: " << largestIndex(vec1) << endl;
 	cout << "The second largest element: " << secondLargest(vec1) << endl;
 	cout << "The second largest element index: " << secondLargestIndex(vec1)
-			<< endl;
+		 << endl;
 
 	vec1 = {10, 10, 10};
 	cout << "Vector " << vec1 << endl;
@@ -265,7 +277,7 @@ int main(int argc, char* argv[]) {
 	cout << "The largest element index: " << largestIndex(vec1) << endl;
 	cout << "The second largest element: " << secondLargest(vec1) << endl;
 	cout << "The second largest element index: " << secondLargestIndex(vec1)
-			<< endl;
+		 << endl;
 
 	vec1 = {10, 20, 30, 40, 50};
 	cout << "Vector " << vec1 << endl;
@@ -314,29 +326,31 @@ int main(int argc, char* argv[]) {
 	cout << "Original vec " << vec1 << endl;
 	cout << "After left rotate by one, vec " << leftRotateByOne(vec1) << endl;
 
-	try {
+	try
+	{
 
 		vec1 = {1, 2, 3, 4, 5};
 		cout << "Original vec " << vec1 << endl;
 		cout << "After left rotate by 3 places, vec " << leftRotate(vec1, 3)
-				<< endl;
+			 << endl;
 
 		vec1 = {1, 2, 3, 4, 5};
 		cout << "Original vec " << vec1 << endl;
 		cout << "After left rotate by 5 places, vec " << leftRotate(vec1, 5)
-				<< endl;
+			 << endl;
 
 		vec1 = {1, 2, 3, 4, 5};
 		cout << "Original vec " << vec1 << endl;
 		cout << "After left rotate by 8 places, vec " << leftRotate(vec1, 8)
-				<< endl;
+			 << endl;
 
 		vec1 = {1, 2, 3, 4, 5};
 		cout << "Original vec " << vec1 << endl;
 		cout << "After left rotate by 13 places, vec " << leftRotate(vec1, 13)
-				<< endl;
-
-	} catch (std::exception &e) {
+			 << endl;
+	}
+	catch (std::exception &e)
+	{
 		cout << e.what() << endl;
 	}
 
@@ -359,191 +373,191 @@ int main(int argc, char* argv[]) {
 
 	vec1 = {2, 3, 10, 6, 4, 8, 1};
 	cout << "Max difference in " << vec1 << " is " << maxDifference(vec1)
-			<< endl;
+		 << endl;
 
 	vec1 = {7, 9, 5, 6, 3, 2};
 	cout << "Max difference in " << vec1 << " is " << maxDifference(vec1)
-			<< endl;
+		 << endl;
 
 	vec1 = {10, 20, 30};
 	cout << "Max difference in " << vec1 << " is " << maxDifference(vec1)
-			<< endl;
+		 << endl;
 
 	vec1 = {30, 10, 8, 2};
 	cout << "Max difference in " << vec1 << " is " << maxDifference(vec1)
-			<< endl;
+		 << endl;
 
 	vec1 = {10, 10, 10, 25, 30, 30};
 	cout << "Frequencies in sorted array " << vec1 << frequenciesSorted(vec1)
-			<< endl;
+		 << endl;
 
 	vec1 = {10, 10, 10, 10};
 	cout << "Frequencies in sorted array " << vec1 << frequenciesSorted(vec1)
-			<< endl;
+		 << endl;
 
 	vec1 = {10, 20, 30};
 	cout << "Frequencies in sorted array " << vec1 << frequenciesSorted(vec1)
-			<< endl;
+		 << endl;
 
 	vec1 = {10};
 	cout << "Frequencies in sorted array " << vec1 << frequenciesSorted(vec1)
-			<< endl;
+		 << endl;
 
 	vec1 = {1, 5, 3, 8, 12};
 	cout << "Max profit in stocks " << vec1 << " is " << maxProfitStocks(vec1)
-			<< endl;
+		 << endl;
 
 	vec1 = {2, 0, 2};
 	cout << "Trapped water inside " << vec1 << " is " << trappedRainWater(vec1)
-			<< endl;
+		 << endl;
 
 	vec1 = {3, 0, 1, 2, 5};
 	cout << "Trapped water inside " << vec1 << " is " << trappedRainWater(vec1)
-			<< endl;
+		 << endl;
 
 	vec1 = {1, 2, 3};
 	cout << "Trapped water inside " << vec1 << " is " << trappedRainWater(vec1)
-			<< endl;
+		 << endl;
 
 	vec1 = {3, 2, 1};
 	cout << "Trapped water inside " << vec1 << " is " << trappedRainWater(vec1)
-			<< endl;
+		 << endl;
 
 	vec1 = {5, 0, 6, 2, 3};
 	cout << "Trapped water inside " << vec1 << " is " << trappedRainWater(vec1)
-			<< endl;
+		 << endl;
 
 	vec1 = {0, 1, 1, 0, 1, 0};
 	cout << "Max consecutive 1's in " << vec1 << " is "
-			<< maxConsecutiveOnes(vec1) << endl;
+		 << maxConsecutiveOnes(vec1) << endl;
 
 	vec1 = {1, 1, 1, 1};
 	cout << "Max consecutive 1's in " << vec1 << " is "
-			<< maxConsecutiveOnes(vec1) << endl;
+		 << maxConsecutiveOnes(vec1) << endl;
 
 	vec1 = {0, 0, 0};
 	cout << "Max consecutive 1's in " << vec1 << " is "
-			<< maxConsecutiveOnes(vec1) << endl;
+		 << maxConsecutiveOnes(vec1) << endl;
 
 	vec1 = {2, 3, -8, 7, -1, 2, 3};
 	cout << "Max subarray sum " << vec1 << " is " << maxSubarraySum(vec1)
-			<< endl;
+		 << endl;
 
 	vec1 = {5, 8, 3};
 	cout << "Max subarray sum " << vec1 << " is " << maxSubarraySum(vec1)
-			<< endl;
+		 << endl;
 
 	vec1 = {-6, -1, -8};
 	cout << "Max subarray sum " << vec1 << " is " << maxSubarraySum(vec1)
-			<< endl;
+		 << endl;
 
 	vec1 = {10, 12, 14, 7, 8};
 	cout << "Max even-odd array in " << vec1 << " is " << maxEvenOddArray(vec1)
-			<< endl;
+		 << endl;
 
 	vec1 = {7, 10, 13, 14};
 	cout << "Max even-odd array in " << vec1 << " is " << maxEvenOddArray(vec1)
-			<< endl;
+		 << endl;
 
 	vec1 = {10, 12, 8, 4};
 	cout << "Max even-odd array in " << vec1 << " is " << maxEvenOddArray(vec1)
-			<< endl;
+		 << endl;
 
 	vec1 = {10, 5, -5};
 	cout << "Max circular subarray sum in " << vec1 << " is "
-			<< maxCircularSubarraySum(vec1) << endl;
+		 << maxCircularSubarraySum(vec1) << endl;
 
 	vec1 = {5, -2, 3, 4};
 	cout << "Max circular subarray sum in " << vec1 << " is "
-			<< maxCircularSubarraySum(vec1) << endl;
+		 << maxCircularSubarraySum(vec1) << endl;
 
 	vec1 = {2, 3, -4};
 	cout << "Max circular subarray sum in " << vec1 << " is "
-			<< maxCircularSubarraySum(vec1) << endl;
+		 << maxCircularSubarraySum(vec1) << endl;
 
 	vec1 = {8, -4, 3, -5, 4};
 	cout << "Max circular subarray sum in " << vec1 << " is "
-			<< maxCircularSubarraySum(vec1) << endl;
+		 << maxCircularSubarraySum(vec1) << endl;
 
 	vec1 = {-3, 4, 6, -2};
 	cout << "Max circular subarray sum in " << vec1 << " is "
-			<< maxCircularSubarraySum(vec1) << endl;
+		 << maxCircularSubarraySum(vec1) << endl;
 
 	vec1 = {-8, 7, 6};
 	cout << "Max circular subarray sum in " << vec1 << " is "
-			<< maxCircularSubarraySum(vec1) << endl;
+		 << maxCircularSubarraySum(vec1) << endl;
 
 	vec1 = {3, -4, 5, 6, -8, 7};
 	cout << "Max circular subarray sum in " << vec1 << " is "
-			<< maxCircularSubarraySum(vec1) << endl;
+		 << maxCircularSubarraySum(vec1) << endl;
 
 	vec1 = {8, 3, 4, 8, 8};
 	cout << "Majority element in " << vec1 << " is "
-			<< findMajorityElement(vec1) << endl;
+		 << findMajorityElement(vec1) << endl;
 
 	vec1 = {3, 7, 4, 7, 7, 5};
 	cout << "Majority element in " << vec1 << " is "
-			<< findMajorityElement(vec1) << endl;
+		 << findMajorityElement(vec1) << endl;
 
 	vec1 = {20, 30, 40, 50, 50, 50, 50};
 	cout << "Majority element in " << vec1 << " is "
-			<< findMajorityElement(vec1) << endl;
+		 << findMajorityElement(vec1) << endl;
 
 	int k;
 
 	vec1 = {1, 8, 30, -5, 20, 7};
 	k = 3;
 	cout << "Max sum of " << k << " elements in " << vec1 << " is "
-			<< maxSumKConsecutive(vec1, k) << endl;
+		 << maxSumKConsecutive(vec1, k) << endl;
 
 	vec1 = {5, -10, 6, 90, 3};
 	k = 2;
 	cout << "Max sum of " << k << " elements in " << vec1 << " is "
-			<< maxSumKConsecutive(vec1, k) << endl;
+		 << maxSumKConsecutive(vec1, k) << endl;
 
 	int target;
 
 	vec1 = {1, 4, 20, 3, 10, 5};
 	target = 33;
 	cout << vec1 << " contains sum " << target << " : " << std::boolalpha
-			<< subarrayWithSum(vec1, target) << endl;
+		 << subarrayWithSum(vec1, target) << endl;
 
 	vec1 = {1, 4, 0, 0, 3, 10, 5};
 	target = 7;
 	cout << vec1 << " contains sum " << target << " : " << std::boolalpha
-			<< subarrayWithSum(vec1, target) << endl;
+		 << subarrayWithSum(vec1, target) << endl;
 
 	vec1 = {2, 4};
 	target = 3;
 	cout << vec1 << " contains sum " << target << " : " << std::boolalpha
-			<< subarrayWithSum(vec1, target) << endl;
+		 << subarrayWithSum(vec1, target) << endl;
 
 	cout << "First 8 3-bonnaci numbers " << computeKNBonnaci(3, 8) << endl;
 	cout << "First 10 4-bonnaci numbers " << computeKNBonnaci(4, 10) << endl;
 
 	vec1 = {1, 2, 1, 3, 4, 3, 3};
 	cout << "Distinct elements in " << vec1 << " with window size 4 is "
-			<< distinctElementsWindowSizeK(vec1, 4) << endl;
+		 << distinctElementsWindowSizeK(vec1, 4) << endl;
 
 	vec1 = {1, 1, 0, 0, 0, 1};
 	cout << "Min group flips for " << vec1 << " are " << miniumGroupFlips(vec1)
-			<< endl;
+		 << endl;
 
 	vec1 = {1, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1};
 	cout << "Min group flips for " << vec1 << " are " << miniumGroupFlips(vec1)
-			<< endl;
+		 << endl;
 
 	vec1 = {1, 1, 1};
 	cout << "Min group flips for " << vec1 << " are " << miniumGroupFlips(vec1)
-			<< endl;
+		 << endl;
 
 	vec1 = {0, 1};
 	cout << "Min group flips for " << vec1 << " are " << miniumGroupFlips(vec1)
-			<< endl;
+		 << endl;
 
 	vec1 = {1, 0, 0, 1, 1, 0, 0, 0, 0};
 	cout << "Min group flips for " << vec1 << " are " << miniumGroupFlips(vec1)
-			<< endl;
+		 << endl;
 
 	vec1 = {2, 8, 3, 9, 6, 5, 4};
 	cout << "Sum 0 to 2 in " << vec1 << " is " << getSum(vec1, 0, 2) << endl;
@@ -552,121 +566,121 @@ int main(int argc, char* argv[]) {
 
 	vec1 = {3, 4, 8, -9, 20, 6};
 	cout << "Equilibirium exists in " << vec1 << " ? " << std::boolalpha
-			<< equilibriumExisits(vec1) << endl;
+		 << equilibriumExisits(vec1) << endl;
 
 	vec1 = {4, 2, -2};
 	cout << "Equilibirium exists in " << vec1 << " ? " << std::boolalpha
-			<< equilibriumExisits(vec1) << endl;
+		 << equilibriumExisits(vec1) << endl;
 
 	vec1 = {4, 2, 2};
 	cout << "Equilibirium exists in " << vec1 << " ? " << std::boolalpha
-			<< equilibriumExisits(vec1) << endl;
+		 << equilibriumExisits(vec1) << endl;
 
 	vector<int> left = {1, 2, 5, 15};
 	vector<int> right = {5, 8, 7, 18};
 
 	cout << "Max occuring in ranges " << left << right << " is "
-			<< maxOccuringInRanges(left, right) << endl;
+		 << maxOccuringInRanges(left, right) << endl;
 
 	vec1 = {10, 20, 30, 40, 50, 60};
 	int x = 20;
 	cout << "Check whether " << x << " exists in " << vec1
-			<< binarySearchIter(vec1, x) << endl;
+		 << binarySearchIter(vec1, x) << endl;
 
 	vec1 = {5, 15, 25};
 	x = 25;
 	cout << "Check whether " << x << " exists in " << vec1
-			<< binarySearchIter(vec1, x) << endl;
+		 << binarySearchIter(vec1, x) << endl;
 
 	vec1 = {5, 10, 15, 25, 35};
 	x = 20;
 	cout << "Check whether " << x << " exists in " << vec1
-			<< binarySearchIter(vec1, x) << endl;
+		 << binarySearchIter(vec1, x) << endl;
 
 	vec1 = {10, 10};
 	x = 10;
 	cout << "Check whether " << x << " exists in " << vec1
-			<< binarySearchIter(vec1, x) << endl;
+		 << binarySearchIter(vec1, x) << endl;
 
 	vec1 = {10, 20, 30, 40, 50, 60};
 	x = 20;
 	cout << "Binary search recursive, check whether " << x << " exists in "
-			<< vec1 << binarySearchRec(vec1, x, 0, vec1.size() - 1) << endl;
+		 << vec1 << binarySearchRec(vec1, x, 0, vec1.size() - 1) << endl;
 
 	vec1 = {5, 15, 25};
 	x = 25;
 	cout << "Binary search recursive, check whether " << x << " exists in "
-			<< vec1 << binarySearchRec(vec1, x, 0, vec1.size() - 1) << endl;
+		 << vec1 << binarySearchRec(vec1, x, 0, vec1.size() - 1) << endl;
 
 	vec1 = {5, 10, 15, 25, 35};
 	x = 20;
 	cout << "Binary search recursive, check whether " << x << " exists in "
-			<< vec1 << binarySearchRec(vec1, x, 0, vec1.size() - 1) << endl;
+		 << vec1 << binarySearchRec(vec1, x, 0, vec1.size() - 1) << endl;
 
 	vec1 = {10, 10};
 	x = 10;
 	cout << "Binary search recursive, check whether " << x << " exists in "
-			<< vec1 << binarySearchRec(vec1, x, 0, vec1.size() - 1) << endl;
+		 << vec1 << binarySearchRec(vec1, x, 0, vec1.size() - 1) << endl;
 
 	vec1 = {1, 10, 10, 10, 20, 20, 40};
 	x = 20;
 	cout << "Find first occurence of " << x << " in " << vec1
-			<< findIndexFirstOccurrence(vec1, x) << endl;
+		 << findIndexFirstOccurrence(vec1, x) << endl;
 
 	vec1 = {10, 20, 30};
 	x = 15;
 	cout << "Find first occurence of " << x << " in " << vec1
-			<< findIndexFirstOccurrence(vec1, x) << endl;
+		 << findIndexFirstOccurrence(vec1, x) << endl;
 
 	vec1 = {15, 15, 15};
 	x = 15;
 	cout << "Find first occurence of " << x << " in " << vec1
-			<< findIndexFirstOccurrence(vec1, x) << endl;
+		 << findIndexFirstOccurrence(vec1, x) << endl;
 
 	vec1 = {10, 15, 20, 20, 40, 40};
 	x = 20;
 	cout << "Find last occurence of " << x << " in " << vec1
-			<< findIndexLastOccurrence(vec1, x) << endl;
+		 << findIndexLastOccurrence(vec1, x) << endl;
 
 	vec1 = {5, 8, 8, 10, 10};
 	x = 10;
 	cout << "Find last occurence of " << x << " in " << vec1
-			<< findIndexLastOccurrence(vec1, x) << endl;
+		 << findIndexLastOccurrence(vec1, x) << endl;
 
 	vec1 = {8, 10, 10, 12};
 	x = 7;
 	cout << "Find last occurence of " << x << " in " << vec1
-			<< findIndexLastOccurrence(vec1, x) << endl;
+		 << findIndexLastOccurrence(vec1, x) << endl;
 
 	vec1 = {10, 10, 10, 10};
 	x = 10;
 	cout << "Find last occurence of " << x << " in " << vec1
-			<< findIndexLastOccurrence(vec1, x) << endl;
+		 << findIndexLastOccurrence(vec1, x) << endl;
 
 	vec1 = {10};
 	x = 10;
 	cout << "Find last occurence of " << x << " in " << vec1
-			<< findIndexLastOccurrence(vec1, x) << endl;
+		 << findIndexLastOccurrence(vec1, x) << endl;
 
 	vec1 = {10, 20, 20, 20, 30, 30};
 	x = 20;
 	cout << "Total occurences of " << x << " in " << vec1
-			<< findTotalOccurrences(vec1, x) << endl;
+		 << findTotalOccurrences(vec1, x) << endl;
 
 	vec1 = {10, 10, 10, 10, 10};
 	x = 10;
 	cout << "Total occurences of " << x << " in " << vec1
-			<< findTotalOccurrences(vec1, x) << endl;
+		 << findTotalOccurrences(vec1, x) << endl;
 
 	vec1 = {5, 8, 10};
 	x = 7;
 	cout << "Total occurences of " << x << " in " << vec1
-			<< findTotalOccurrences(vec1, x) << endl;
+		 << findTotalOccurrences(vec1, x) << endl;
 
 	vec1 = {30};
 	x = 30;
 	cout << "Total occurences of " << x << " in " << vec1
-			<< findTotalOccurrences(vec1, x) << endl;
+		 << findTotalOccurrences(vec1, x) << endl;
 
 	vec1 = {0, 0, 0, 1, 1, 1, 1};
 	cout << "Count of ones in " << vec1 << " is " << countOnes(vec1) << endl;
@@ -704,186 +718,190 @@ int main(int argc, char* argv[]) {
 	vec1 = {0, 1, 2, 3, 4, 5, 6, 7, 8};
 	x = 4;
 	cout << "Index of " << x << " in " << vec1
-			<< " using unbounded binary search: "
-			<< findIndexInfiniteArray(vec1, x) << endl;
+		 << " using unbounded binary search: "
+		 << findIndexInfiniteArray(vec1, x) << endl;
 
 	vec1 = {1, 2, 3, 4, 5, 6, 7, 100};
 	x = 100;
 	cout << "Index of " << x << " in " << vec1
-			<< " using unbounded binary search: "
-			<< findIndexInfiniteArray(vec1, x) << endl;
+		 << " using unbounded binary search: "
+		 << findIndexInfiniteArray(vec1, x) << endl;
 
 	vec1 = {2, 3, 4, 5, 6, 7, 100};
 	x = 1;
 	cout << "Index of " << x << " in " << vec1
-			<< " using unbounded binary search: "
-			<< findIndexInfiniteArray(vec1, x) << endl;
+		 << " using unbounded binary search: "
+		 << findIndexInfiniteArray(vec1, x) << endl;
 
 	vec1 = {500, 400, 300, 200, 100};
 	x = 500;
 	cout << "Index of " << x << " in " << vec1 << " is "
-			<< findIndexSortedRotatedArray(vec1, x) << endl;
+		 << findIndexSortedRotatedArray(vec1, x) << endl;
 
 	vec1 = {10, 20, 30, 40, 50, 8, 9};
 	x = 30;
 	cout << "Index of " << x << " in " << vec1 << " is "
-			<< findIndexSortedRotatedArray(vec1, x) << endl;
+		 << findIndexSortedRotatedArray(vec1, x) << endl;
 
 	vec1 = {100, 200, 300, 10, 20};
 	x = 40;
 	cout << "Index of " << x << " in " << vec1 << " is "
-			<< findIndexSortedRotatedArray(vec1, x) << endl;
+		 << findIndexSortedRotatedArray(vec1, x) << endl;
 
 	vec1 = {500, 400, 300, 200, 500};
 	x = 500;
 	cout << "Index of " << x << " in " << vec1 << " is "
-			<< findIndexSortedRotatedArray(vec1, x) << endl;
+		 << findIndexSortedRotatedArray(vec1, x) << endl;
 
 	vec1 = {5, 10, 20, 15, 7};
 	cout << "Peak element in " << vec1 << " is " << findPeakElement(vec1)
-			<< endl;
+		 << endl;
 
 	vec1 = {10, 20, 15, 23, 90, 67};
 	cout << "Peak element in " << vec1 << " is " << findPeakElement(vec1)
-			<< endl;
+		 << endl;
 
 	vec1 = {80, 70, 60};
 	cout << "Peak element in " << vec1 << " is " << findPeakElement(vec1)
-			<< endl;
+		 << endl;
 
 	vec1 = {10};
 	cout << "Peak element in " << vec1 << " is " << findPeakElement(vec1)
-			<< endl;
+		 << endl;
 
 	vec1 = {2, 5, 8, 12, 30};
 	x = 17;
 	cout << "Pair for sum " << x << " in " << vec1 << " is "
-			<< findPairWithSum(vec1, x) << endl;
+		 << findPairWithSum(vec1, x) << endl;
 
 	vec1 = {3, 8, 13, 18};
 	x = 14;
 	cout << "Pair for sum " << x << " in " << vec1 << " is "
-			<< findPairWithSum(vec1, x) << endl;
+		 << findPairWithSum(vec1, x) << endl;
 
 	vec1 = {1, 2, 3, 4, 5};
 	x = 9;
 	cout << "Triplet with sum " << x << " in " << vec1 << " is "
-			<< findTripletWithSum(vec1, x) << endl;
+		 << findTripletWithSum(vec1, x) << endl;
 
 	vec1 = {2, 3, 4, 8, 9, 20, 40};
 	x = 32;
 	cout << "Triplet with sum " << x << " in " << vec1 << " is "
-			<< findTripletWithSum(vec1, x) << endl;
+		 << findTripletWithSum(vec1, x) << endl;
 
 	vec1 = {10, 20, 30, 40, 50};
 	vec2 = {5, 15, 25, 35, 45};
 	cout << "Median of two sorted arrays: " << vec1 << " and " << vec2 << " is "
-			<< findMedianTwoSortedArrays(vec1, vec2) << endl;
+		 << findMedianTwoSortedArrays(vec1, vec2) << endl;
 
 	vec1 = {1, 2, 3, 4, 5, 6};
 	vec2 = {10, 20, 30, 40, 50};
 	cout << "Median of two sorted arrays: " << vec1 << " and " << vec2 << " is "
-			<< findMedianTwoSortedArrays(vec1, vec2) << endl;
+		 << findMedianTwoSortedArrays(vec1, vec2) << endl;
 
 	vec1 = {1, 2, 4, 5, 3, 5};
 	cout << "The repeating element in " << vec1 << " is "
-			<< findRepeatingElement(vec1) << endl;
+		 << findRepeatingElement(vec1) << endl;
 
 	vec1 = {0, 1, 2, 3, 4, 4};
 	cout << "The repeating element in " << vec1 << " is "
-			<< findRepeatingElement(vec1) << endl;
+		 << findRepeatingElement(vec1) << endl;
 
 	vec1 = {1, 2, 3, 4};
 	k = 3;
 	cout << "Minimum number of pages in " << vec1 << " per " << k
-			<< " students is " << findMinimumPagesPerKStudents(vec1, k) << endl;
+		 << " students is " << findMinimumPagesPerKStudents(vec1, k) << endl;
 
 	vec1 = {10, 20, 30, 40};
 	k = 2;
 	cout << "Minimum number of pages in " << vec1 << " per " << k
-			<< " students is " << findMinimumPagesPerKStudents(vec1, k) << endl;
+		 << " students is " << findMinimumPagesPerKStudents(vec1, k) << endl;
 
 	vec1 = {10, 20};
 	k = 3;
 	cout << "Minimum number of pages in " << vec1 << " per " << k
-			<< " students is " << findMinimumPagesPerKStudents(vec1, k) << endl;
+		 << " students is " << findMinimumPagesPerKStudents(vec1, k) << endl;
 
 	int arr[] = {5, 4, 3, 2, 1};
 	int arrSize = sizeof(arr) / sizeof(arr[0]);
 
 	cout << "Original array: " << endl;
-	for (int i = 0; i < arrSize; i++) {
+	for (int i = 0; i < arrSize; i++)
+	{
 		cout << arr[i] << endl;
 	}
 
 	sortArraySTL(arr, arrSize);
 
 	cout << "Array after sorting: " << endl;
-	for (int i = 0; i < arrSize; i++) {
+	for (int i = 0; i < arrSize; i++)
+	{
 		cout << arr[i] << endl;
 	}
 
-	auto decreasing = [](int a, int b) {
+	auto decreasing = [](int a, int b)
+	{
 		return a > b;
 	};
 	sortArraySTL(arr, arrSize, decreasing);
 
 	cout << "Array after sorting to descending order: " << endl;
-	for (int i = 0; i < arrSize; i++) {
+	for (int i = 0; i < arrSize; i++)
+	{
 		cout << arr[i] << endl;
 	}
 
 	vec1 = {2, 10, 8, 7};
 	cout << "Original array : " << vec1 << ", bubble sorted: "
-			<< bubbleSort(vec1) << endl;
+		 << bubbleSort(vec1) << endl;
 
 	vec1 = {10, 5, 8, 20, 2, 18};
 	cout << "Original array : " << vec1 << ", selection sorted: "
-			<< selectionSort(vec1) << endl;
+		 << selectionSort(vec1) << endl;
 
 	vec1 = {5, 4, 3, 2, 1};
 	cout << "Original array: " << vec1 << ", insertion sorted: "
-			<< insertionSort(vec1) << endl;
+		 << insertionSort(vec1) << endl;
 
 	vec1 = {10, 15, 20, 11, 30};
 	cout << "Original array: " << vec1 << ", merged: " << merge(vec1, 0, 2, 4)
-			<< endl;
+		 << endl;
 
 	vec1 = {5, 4, 3, 2, 1};
 	cout << "Original array: " << vec1 << ", merge sorted: " << mergeSort(vec1)
-			<< endl;
+		 << endl;
 
 	vec1 = {3, 5, 10, 10, 10, 15, 15, 20};
 	vec2 = {5, 10, 10, 15, 30};
 	cout << "Intersection of vectors " << vec1 << " and " << vec2 << " is "
-			<< interSectionSortedArrays(vec1, vec2) << endl;
+		 << interSectionSortedArrays(vec1, vec2) << endl;
 
 	vec1 = {1, 1, 3, 3, 3};
 	vec2 = {1, 1, 1, 1, 3, 5, 7};
 	cout << "Intersection of vectors " << vec1 << " and " << vec2 << " is "
-			<< interSectionSortedArrays(vec1, vec2) << endl;
+		 << interSectionSortedArrays(vec1, vec2) << endl;
 
 	vec1 = {3, 5, 8};
 	vec2 = {2, 8, 9, 10, 15};
 	cout << "Union of vectors " << vec1 << " and " << vec2 << " is "
-			<< unionSortedArrays(vec1, vec2) << endl;
+		 << unionSortedArrays(vec1, vec2) << endl;
 
 	vec1 = {2, 3, 3, 3, 4, 4};
 	vec2 = {4, 4};
 	cout << "Union of vectors " << vec1 << " and " << vec2 << " is "
-			<< unionSortedArrays(vec1, vec2) << endl;
+		 << unionSortedArrays(vec1, vec2) << endl;
 
 	vec1 = {2, 4, 1, 3, 5};
 	cout << "Original array: " << vec1 << ", count inversions: "
-			<< countInversions(vec1) << endl;
+		 << countInversions(vec1) << endl;
 
 	vec1 = {40, 30, 20, 10};
 	cout << "Original array: " << vec1 << ", count inversions: "
-			<< countInversions(vec1) << endl;
+		 << countInversions(vec1) << endl;
 
 	vec1 = {10, 20, 30, 40};
 	cout << "Original array: " << vec1 << ", count inversions: "
-			<< countInversions(vec1) << endl;
+		 << countInversions(vec1) << endl;
 
 	vec1 = {3, 8, 6, 12, 10, 7};
 	cout << "Original array: " << vec1 << ", qsort using lomuto partitioning: ";
@@ -897,9 +915,11 @@ int main(int argc, char* argv[]) {
 
 	vector<vector<int>> matrix;
 
-	for (int i = 0; i < 4; i++) {
+	for (int i = 0; i < 4; i++)
+	{
 		vector<int> row;
-		for (int j = 0; j < 4; j++) {
+		for (int j = 0; j < 4; j++)
+		{
 			row.push_back(j + 1 + i * 4);
 		}
 		matrix.push_back(row);
@@ -942,10 +962,10 @@ int main(int argc, char* argv[]) {
 	dat.insert(199);
 
 	cout << dat.search(101) << " " << dat.search(199) << " " << dat.search(100)
-			<< endl;
+		 << endl;
 	dat.remove(199);
 	cout << dat.search(101) << " " << dat.search(199) << " " << dat.search(100)
-			<< endl;
+		 << endl;
 	{
 		HashTableChaining hashTbl{7};
 
@@ -1021,66 +1041,66 @@ int main(int argc, char* argv[]) {
 	{
 		std::vector<int> vec1{15, 12, 13, 12, 13, 13, 18};
 		cout << "Number of distinct elements in " << vec1 << " is "
-				<< countDistinctElements(vec1) << endl;
+			 << countDistinctElements(vec1) << endl;
 
 		vec1 = {10, 10, 10};
 		cout << "Number of distinct elements in " << vec1 << " is "
-				<< countDistinctElements(vec1) << endl;
+			 << countDistinctElements(vec1) << endl;
 
 		vec1 = {10, 11, 12};
 		cout << "Number of distinct elements in " << vec1 << " is "
-				<< countDistinctElements(vec1) << endl;
+			 << countDistinctElements(vec1) << endl;
 	}
 
 	{
 		std::vector<int> vec1{10, 12, 10, 15, 10, 20, 12, 12};
 		cout << "Frequency of elements in " << vec1 << " is "
-				<< getFrequency(vec1) << endl;
+			 << getFrequency(vec1) << endl;
 		vec1 = {10, 10, 10, 10};
 		cout << "Frequency of elements in " << vec1 << " is "
-				<< getFrequency(vec1) << endl;
+			 << getFrequency(vec1) << endl;
 
 		vec1 = {10, 20};
 		cout << "Frequency of elements in " << vec1 << " is "
-				<< getFrequency(vec1) << endl;
+			 << getFrequency(vec1) << endl;
 	}
 
 	{
 		std::vector<int> vec1{10, 15, 20, 5, 30};
 		std::vector<int> vec2{30, 5, 30, 80};
 		std::cout << "Intersection of " << vec1 << " and " << vec2 << " is "
-				<< intersectionUnsorted(vec1, vec2) << endl;
+				  << intersectionUnsorted(vec1, vec2) << endl;
 
 		vec1 = {10, 20};
 		vec2 = {20, 30};
 
 		std::cout << "Intersection of " << vec1 << " and " << vec2 << " is "
-				<< intersectionUnsorted(vec1, vec2) << endl;
+				  << intersectionUnsorted(vec1, vec2) << endl;
 
 		vec1 = {10, 10, 10};
 		vec2 = {10, 10, 10};
 
 		std::cout << "Intersection of " << vec1 << " and " << vec2 << " is "
-				<< intersectionUnsorted(vec1, vec2) << endl;
+				  << intersectionUnsorted(vec1, vec2) << endl;
 	}
 
 	{
 		std::vector<int> vec1{15, 20, 5, 15};
 		std::vector<int> vec2{15, 15, 15, 20, 10};
 		std::cout << "Union of " << vec1 << " and " << vec2 << " is "
-				<< unionUnsorted(vec1, vec2) << endl;
+				  << unionUnsorted(vec1, vec2) << endl;
 
 		vec1 = {10, 12, 15};
 		vec2 = {18, 12};
 
 		std::cout << "Union of " << vec1 << " and " << vec2 << " is "
-				<< unionUnsorted(vec1, vec2) << endl;
+				  << unionUnsorted(vec1, vec2) << endl;
 
 		vec1 = {3, 3, 3};
 		vec2 = {3, 3};
 
 		std::cout << "Intersection of " << vec1 << " and " << vec2 << " is "
-				<< intersectionUnsorted(vec1, vec2) << endl;
+				  << intersectionUnsorted(vec1, vec2) << endl;
 	}
 
 	{
@@ -1088,41 +1108,41 @@ int main(int argc, char* argv[]) {
 		int sum = 17;
 
 		std::cout << "Pair with sum " << sum << " in " << vec1 << " is "
-				<< findPairWithSumUnsorted(vec1, sum) << endl;
+				  << findPairWithSumUnsorted(vec1, sum) << endl;
 
 		vec1 = {2, 1, 6, 3};
 		sum = 6;
 
 		std::cout << "Pair with sum " << sum << " in " << vec1 << " is "
-				<< findPairWithSumUnsorted(vec1, sum) << endl;
+				  << findPairWithSumUnsorted(vec1, sum) << endl;
 
 		vec1 = {5, 8, -3, 6};
 		sum = 3;
 
 		std::cout << "Pair with sum " << sum << " in " << vec1 << " is "
-				<< findPairWithSumUnsorted(vec1, sum) << endl;
+				  << findPairWithSumUnsorted(vec1, sum) << endl;
 	}
 
 	{
 		std::vector<int> vec1{1, 4, 13, -3, -10, 5};
 		std::cout << "Subarray with sum 0 in " << vec1 << " exists?:  "
-				<< subarrayWithZeroSumExists(vec1) << endl;
+				  << subarrayWithZeroSumExists(vec1) << endl;
 
 		vec1 = {-1, 4, -3, 5, 1};
 		std::cout << "Subarray with sum 0 in " << vec1 << " exists?:  "
-				<< subarrayWithZeroSumExists(vec1) << endl;
+				  << subarrayWithZeroSumExists(vec1) << endl;
 
 		vec1 = {-1, 4, 5, -3, 1};
 		std::cout << "Subarray with sum 0 in " << vec1 << " exists?:  "
-				<< subarrayWithZeroSumExists(vec1) << endl;
+				  << subarrayWithZeroSumExists(vec1) << endl;
 
 		vec1 = {3, 1, -2, 5, 6};
 		std::cout << "Subarray with sum 0 in " << vec1 << " exists?:  "
-				<< subarrayWithZeroSumExists(vec1) << endl;
+				  << subarrayWithZeroSumExists(vec1) << endl;
 
 		vec1 = {5, 6, 0, 8};
 		std::cout << "Subarray with sum 0 in " << vec1 << " exists?:  "
-				<< subarrayWithZeroSumExists(vec1) << endl;
+				  << subarrayWithZeroSumExists(vec1) << endl;
 	}
 
 	{
@@ -1130,19 +1150,19 @@ int main(int argc, char* argv[]) {
 		int sum = 22;
 
 		std::cout << "Subarray with sum " << sum << " in " << vec1
-				<< " exists?:  " << subarrayWithSumExists(vec1, sum) << endl;
+				  << " exists?:  " << subarrayWithSumExists(vec1, sum) << endl;
 
 		vec1 = {15, 2, 8, 10, -5, -8, 6};
 		sum = 3;
 
 		std::cout << "Subarray with sum " << sum << " in " << vec1
-				<< " exists?:  " << subarrayWithSumExists(vec1, sum) << endl;
+				  << " exists?:  " << subarrayWithSumExists(vec1, sum) << endl;
 
 		vec1 = {5, 3, 2, -1};
 		sum = 4;
 
 		std::cout << "Subarray with sum " << sum << " in " << vec1
-				<< " exists?:  " << subarrayWithSumExists(vec1, sum) << endl;
+				  << " exists?:  " << subarrayWithSumExists(vec1, sum) << endl;
 	}
 
 	{
@@ -1150,46 +1170,45 @@ int main(int argc, char* argv[]) {
 		int sum = 5;
 
 		std::cout << "Longest subarray with sum " << sum << " in " << vec1
-				<< " is " << longestSubarrayWithSum(vec1, sum) << endl;
+				  << " is " << longestSubarrayWithSum(vec1, sum) << endl;
 
 		vec1 = {5, 8, -4, -4, 9, -2, 2};
 		sum = 0;
 
 		std::cout << "Longest subarray with sum " << sum << " in " << vec1
-				<< " is " << longestSubarrayWithSum(vec1, sum) << endl;
+				  << " is " << longestSubarrayWithSum(vec1, sum) << endl;
 
 		vec1 = {8, 3, 7};
 		sum = 15;
 
 		std::cout << "Longest subarray with sum " << sum << " in " << vec1
-				<< " is " << longestSubarrayWithSum(vec1, sum) << endl;
-
+				  << " is " << longestSubarrayWithSum(vec1, sum) << endl;
 	}
 
 	{
 		std::vector<int> vec1{1, 0, 1, 1, 1, 0, 0};
 
 		std::cout << "Longest subarry with equal number of 1s and 0s in "
-				<< vec1 << " is " << longestSubarrayWithEqualZeroesOnes(vec1)
-				<< endl;
+				  << vec1 << " is " << longestSubarrayWithEqualZeroesOnes(vec1)
+				  << endl;
 
 		vec1 = {1, 1, 1, 1};
 
 		std::cout << "Longest subarry with equal number of 1s and 0s in "
-				<< vec1 << " is " << longestSubarrayWithEqualZeroesOnes(vec1)
-				<< endl;
+				  << vec1 << " is " << longestSubarrayWithEqualZeroesOnes(vec1)
+				  << endl;
 
 		vec1 = {0, 0, 1, 1, 1, 1, 1, 0};
 
 		std::cout << "Longest subarry with equal number of 1s and 0s in "
-				<< vec1 << " is " << longestSubarrayWithEqualZeroesOnes(vec1)
-				<< endl;
+				  << vec1 << " is " << longestSubarrayWithEqualZeroesOnes(vec1)
+				  << endl;
 
 		vec1 = {0, 0, 1, 0, 1, 1};
 
 		std::cout << "Longest subarry with equal number of 1s and 0s in "
-				<< vec1 << " is " << longestSubarrayWithEqualZeroesOnes(vec1)
-				<< endl;
+				  << vec1 << " is " << longestSubarrayWithEqualZeroesOnes(vec1)
+				  << endl;
 	}
 
 	{
@@ -1197,22 +1216,24 @@ int main(int argc, char* argv[]) {
 		std::vector<int> vec2{1, 0, 1, 0, 0, 1, 1};
 
 		std::cout << "Longest common subarray with equal sum for" << endl
-				<< vec1 << endl << vec2 << endl << " is "
-				<< longestCommonSubarrayWithGivenSum(vec1, vec2) << endl;
+				  << vec1 << endl
+				  << vec2 << endl
+				  << " is "
+				  << longestCommonSubarrayWithGivenSum(vec1, vec2) << endl;
 	}
 
 	{
 		std::vector<int> vec1{1, 9, 3, 4, 2, 20};
 		std::cout << "Longest subsequence in " << vec1 << " is "
-				<< longsetSubsequence(vec1) << endl;
+				  << longsetSubsequence(vec1) << endl;
 	}
 
 	{
 		std::vector<int> vec1{10, 20, 20, 10, 30, 40, 10};
 		int k = 4;
 		std::cout << "Count of distinct elements in " << vec1
-				<< " with window size " << k << " is "
-				<< countDistinctElementsPerWindow(vec1, k) << endl;
+				  << " with window size " << k << " is "
+				  << countDistinctElementsPerWindow(vec1, k) << endl;
 	}
 
 	{
@@ -1220,19 +1241,19 @@ int main(int argc, char* argv[]) {
 		int k = 4;
 
 		std::cout << "Elements with more than n/k occurrences in " << vec1
-				<< " are " << moreThanNByKOcurrences(vec1, k) << endl;
+				  << " are " << moreThanNByKOcurrences(vec1, k) << endl;
 
 		vec1 = {30, 10, 20, 30, 30, 40, 30, 40, 30};
 		k = 2;
 
 		std::cout << "Elements with more than n/k occurrences in " << vec1
-				<< " are " << moreThanNByKOcurrences(vec1, k) << endl;
+				  << " are " << moreThanNByKOcurrences(vec1, k) << endl;
 	}
 
 	{
-//		auto fn = [](const TreeNode<int>& i) -> void {
-//			std::cout << i.key << " -> ";
-//		};
+		//		auto fn = [](const TreeNode<int>& i) -> void {
+		//			std::cout << i.key << " -> ";
+		//		};
 
 		auto root = std::make_shared<TreeNode<int>>(10);
 		root->left = std::make_shared<TreeNode<int>>(20);
@@ -1244,37 +1265,32 @@ int main(int argc, char* argv[]) {
 		root->left->right->right = std::make_shared<TreeNode<int>>(80);
 
 		std::cout << "Inorder traversal" << endl;
-		inOrderTraversal(root, [](const TreeNode<int>& i) {
-			std::cout << i.key << " -> ";
-		});
+		inOrderTraversal(root, [](const TreeNode<int> &i)
+						 { std::cout << i.key << " -> "; });
 		std::cout << endl;
 
 		std::cout << "Preorder traversal" << endl;
-		preOrderTraversal(root, [](const TreeNode<int>& i) {
-			std::cout << i.key << " -> ";
-		});
+		preOrderTraversal(root, [](const TreeNode<int> &i)
+						  { std::cout << i.key << " -> "; });
 		std::cout << endl;
 
 		std::cout << "Preorder traversal Iterative" << endl;
-		preOrderTraversalIterative(root, [](const TreeNode<int>& i) {
-			std::cout << i.key << " -> ";
-		});
+		preOrderTraversalIterative(root, [](const TreeNode<int> &i)
+								   { std::cout << i.key << " -> "; });
 
 		std::cout << endl;
 
 		std::cout << "Postorder traversal" << endl;
-		postOrderTraversal(root, [](const TreeNode<int>& i) -> void {
-			std::cout << i.key << " -> ";
-		});
+		postOrderTraversal(root, [](const TreeNode<int> &i) -> void
+						   { std::cout << i.key << " -> "; });
 
 		std::cout << endl;
 
 		cout << "Tree height: " << heightOfTree(root) << endl;
 		cout << "Nodes at distance 1: " << nodesAtDistance(root, 2) << endl;
 		cout << "Breadth first traversal: " << endl;
-		breadthFirstTraversal(root, [](TreeNode<int>& n) {
-			cout << n << " -> ";
-		});
+		breadthFirstTraversal(root, [](TreeNode<int> &n)
+							  { cout << n << " -> "; });
 
 		cout << endl;
 		cout << "Tree level order traversal line by line: " << endl;
@@ -1288,8 +1304,7 @@ int main(int argc, char* argv[]) {
 
 		cout << "Left view of tree: " << getLeftView(root) << endl;
 		cout << "Left view of tree Iterative: " << getLeftViewIter(root)
-				<< endl;
-
+			 << endl;
 	}
 	{
 		// CSP when tree is empty
@@ -1312,7 +1327,7 @@ int main(int argc, char* argv[]) {
 		root->left = std::make_shared<TreeNode<int>>(8);
 		root->right = std::make_shared<TreeNode<int>>(12);
 		root->right->right = std::make_shared<TreeNode<int>>(30);
-//		root->right->right->right = std::make_shared<TreeNode<int>>(40);
+		//		root->right->right->right = std::make_shared<TreeNode<int>>(40);
 		root->left->left = std::make_shared<TreeNode<int>>(3);
 		root->left->right = std::make_shared<TreeNode<int>>(5);
 		cout << "Children sum property: " << childrenSumProperty(root) << endl;
@@ -1328,13 +1343,7 @@ int main(int argc, char* argv[]) {
 		std::vector<int> coins{5, 10, 2, 1};
 		int value = 52;
 		cout << "Minimum coins in " << coins << " for value: " << value
-				<< " is " << minimumCoins(coins, value) << endl;
-	}
-
-	{
-		std::string s{"ABCD"};
-
-		cout << "Permutations of " << s << " excluding AB are " << PermutationsExcluding(s) << endl;
+			 << " is " << minimumCoins(coins, value) << endl;
 	}
 
 	getchar();

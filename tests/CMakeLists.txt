@@ -1,7 +1,7 @@
 find_package(GTest REQUIRED)
 
 if(NOT GTEST_LIBRARY)
-   message("not found")
+    message("not found")
 endif()
 
 set(DSA_TESTS
@@ -15,6 +15,10 @@ set(DSA_TESTS
     strings_tests.cpp
     tree_tests.cpp
     dp_tests.cpp
+    recursion_tests.cpp
+    backtracking_tests.cpp
+    trie_tests.cpp
+    disjoint-set_tests.cpp
 )
 
 add_executable(dsa-tests run-tests.cpp)

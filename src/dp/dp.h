@@ -2,6 +2,7 @@
 #define DP_H
 
 #include <string>
+#include <vector>
 
 /*
     Dynamic programming in simple terms is an optimization over recurssion
@@ -45,8 +46,49 @@ f(1)    f(0)
     The toughest part in dynamic programming solution is to come up with a recursive solition with overlapping problems.
 */
 
-int FibonacciMemo(int n); // Top-down
-int FibonacciTabulation(int n); // bottom-up, solve subproblems first, kind of iterative, Time O(n), Space O(n)
+// Top-down, recursive
+class FibonacciMemo
+{
+private:
+    std::vector<int> memo;
+
+public:
+    FibonacciMemo(int N) : memo{std::vector<int>(N, -1)} {}
+
+    int operator()(int n)
+    {
+        if (n == 0 || n == 1)
+            return n;
+        if (memo[n] != -1)
+            return memo[n];
+
+        memo[n] = (*this)(n - 1) + (*this)(n - 2);
+
+        return memo[n];
+    }
+};
+
+// bottom-up, solve subproblems first, kind of iterative, Time O(n), Space O(n)
+class FibonacciTabulation
+{
+private:
+    std::vector<int> table;
+
+public:
+    FibonacciTabulation(int N) : table{std::vector<int>(N, -1)} {}
+
+    int operator()(int n)
+    {
+        table[0] = 0;
+        table[1] = 1;
+        for (int i = 2; i <= n; i++)
+        {
+            table[i] = table[i - 1] + table[i - 2];
+        }
+        return table[n];
+    }
+};
+
 /*
     What is subsequence?
     Subsequences of "CDA" => "", "C", "D", "A", "CD", "CA", "DA", "CDA"
@@ -58,7 +100,7 @@ int FibonacciTabulation(int n); // bottom-up, solve subproblems first, kind of i
     Take two strings s1 and s2 with lengths m and n and return the length of
     longest common subsequence
 
-    In a string of length n, there can be 2^n possible subsequences
+    In a string of length n, there can be 2^n possible subsequences (note: not permutations)
 */
 
 /*
@@ -69,7 +111,7 @@ int FibonacciTabulation(int n); // bottom-up, solve subproblems first, kind of i
 
 /*
  Time complexity of naive recursive implementation
- Time O(2^n) image m == n, and no matches
+ Time O(2^n) imagine m == n, and no matches
                          (n,n)
             (n - 1, n)                  (n, n - 1)
     (n-2, n)    (n-1, n-1)      (n-1, n-1)        (n, n-2)
@@ -77,25 +119,25 @@ int FibonacciTabulation(int n); // bottom-up, solve subproblems first, kind of i
 
     1,2,4,....,2^n
 */
-int LongestCommonSubsequenceRecursive(std::string& s1,  std::string& s2, int m, int n);
+int LongestCommonSubsequenceRecursive(std::string &s1, std::string &s2, int m, int n);
 
 // LCS with memoization, s1 and s2 remain same in each recusive call, only m and n change
 // so we have two-dimensional memo array
 // Time O(mn)
-int LongestCommonSubsequenceMemo(std::string& s1,  std::string& s2, int m, int n);
+int LongestCommonSubsequenceMemo(std::string &s1, std::string &s2, int m, int n);
 // Time O(mn)
-int LongestCommonSubsequenceTabulation(std::string& s1,  std::string& s2, int m, int n);
+int LongestCommonSubsequenceTabulation(std::string &s1, std::string &s2, int m, int n);
 
 // Given a string s, find the longest palindromic subsequence inside it
 // a palindromic subsequence is a subsequence that reads same in both directions
 // i.e. left to right and right to left
 // For example s = "geeksforgeeks", the palindromic subsequence is "eeree" or "eeoee"
-int LongestPalindromicSubsequence(std::string& s);
+int LongestPalindromicSubsequence(std::string &s);
 
 // A common supersequence is a string of which both s1 and s2 are subsequences
 // A longest common supersuquence could be formed by just attaching s1 and s2
 // For shortest, take LCS, and then add characters not common from both s1 and s2
-int ShortestCommonSupersequence(std::string& s1, std::string& s2);
+int ShortestCommonSupersequence(std::string &s1, std::string &s2);
 
 // Count maximum combinations of coins that make amount sum
 // For example coins = {1, 2, 3}, sum = 4, count = 4

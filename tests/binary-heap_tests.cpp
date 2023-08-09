@@ -8,7 +8,8 @@
 #include "../src/binary-heap/binary-heap.h"
 #include <gtest/gtest.h>
 
-TEST(BinaryHeap, MinHeapInsertTest) {
+TEST(BinaryHeap, MinHeapInsertTest)
+{
 	MinHeap h;
 
 	h.insert(3);
@@ -24,14 +25,15 @@ TEST(BinaryHeap, MinHeapInsertTest) {
 	EXPECT_EQ(arr[h.left(1)], 20);
 }
 
-TEST(BinaryHeap, MinHeapifyTest) {
+TEST(BinaryHeap, MinHeapifyTest)
+{
 	MinHeap h;
 
 	std::vector<int> vec{40, 20, 30, 35, 25, 80, 32, 100, 70, 60};
 
 	h.setArray(vec);
 
-	h.minHeapify(0);
+	h.heapify(0);
 
 	std::vector<int> expected{20, 25, 30, 35, 40, 80, 32, 100, 70, 60};
 	auto arr = h.array();
@@ -39,7 +41,8 @@ TEST(BinaryHeap, MinHeapifyTest) {
 	EXPECT_EQ(arr, expected);
 }
 
-TEST(BinaryHeap, MinHeapExtractMinTest) {
+TEST(BinaryHeap, MinHeapExtractMinTest)
+{
 	MinHeap h;
 
 	std::vector<int> vec{20, 25, 30, 35, 40, 80, 32, 100, 70, 60};
@@ -56,7 +59,8 @@ TEST(BinaryHeap, MinHeapExtractMinTest) {
 	EXPECT_EQ(arr, expected);
 }
 
-TEST(BinaryHeap, MinHeapDecreaseKeyTest) {
+TEST(BinaryHeap, MinHeapDecreaseKeyTest)
+{
 	MinHeap h;
 
 	std::vector<int> vec{10, 20, 40, 80, 100, 70};
@@ -71,7 +75,8 @@ TEST(BinaryHeap, MinHeapDecreaseKeyTest) {
 	EXPECT_EQ(arr, expected);
 }
 
-TEST(BinaryHeap, MinHeapDeleteKeyTest) {
+TEST(BinaryHeap, MinHeapDeleteKeyTest)
+{
 	MinHeap h;
 
 	std::vector<int> vec{10, 20, 30, 40, 50, 35, 38, 45};
@@ -86,7 +91,8 @@ TEST(BinaryHeap, MinHeapDeleteKeyTest) {
 	EXPECT_EQ(arr, expected);
 }
 
-TEST(BinaryHeap, MinHeapBuildTest) {
+TEST(BinaryHeap, MinHeapBuildTest)
+{
 	MinHeap h;
 
 	std::vector<int> vec{10, 5, 20, 2, 4, 8};
@@ -101,10 +107,10 @@ TEST(BinaryHeap, MinHeapBuildTest) {
 	EXPECT_EQ(arr, expected);
 }
 
-TEST(BinaryHeap, HeapSortIncreasingTest) {
+TEST(BinaryHeap, HeapSortIncreasingTest)
+{
 
 	std::vector<int> vec{12, 11, 13, 5, 6, 7};
-	;
 
 	auto sorted = heapSort(vec);
 
@@ -113,7 +119,8 @@ TEST(BinaryHeap, HeapSortIncreasingTest) {
 	EXPECT_EQ(sorted, expected);
 }
 
-TEST(BinaryHeap, SortKSortedTest) {
+TEST(BinaryHeap, SortKSortedTest)
+{
 	int k = 3;
 	std::vector<int> arr{2, 6, 3, 12, 56, 8};
 
@@ -123,7 +130,8 @@ TEST(BinaryHeap, SortKSortedTest) {
 	EXPECT_EQ(result, expected);
 }
 
-TEST(BinaryHeap, PurchaseMaximumItemsWithSumTest) {
+TEST(BinaryHeap, PurchaseMaximumItemsWithSumTest)
+{
 	std::vector<int> costs{1, 12, 5, 111, 200};
 	int result = purchaseMaximumItemsWithSum(costs, 10);
 
@@ -135,7 +143,8 @@ TEST(BinaryHeap, PurchaseMaximumItemsWithSumTest) {
 	EXPECT_EQ(result, 3);
 }
 
-TEST(BinaryHeap, KLargestElementsTest) {
+TEST(BinaryHeap, KLargestElementsTest)
+{
 	std::vector<int> arr{5, 15, 10, 20, 8};
 	auto result = KLargestElements(arr, 2);
 
@@ -151,7 +160,8 @@ TEST(BinaryHeap, KLargestElementsTest) {
 	EXPECT_EQ(result, expected);
 }
 
-TEST(BinaryHeap, KClosestElementsTest) {
+TEST(BinaryHeap, KClosestElementsTest)
+{
 	std::vector<int> arr{10, 15, 7, 3, 4};
 	auto result = KClosestElements(arr, 8, 2);
 
@@ -173,7 +183,8 @@ TEST(BinaryHeap, KClosestElementsTest) {
 	EXPECT_EQ(result, expected);
 }
 
-TEST(BinaryHeap, mergeKSortedTest) {
+TEST(BinaryHeap, mergeKSortedTest)
+{
 	std::vector<std::vector<int>> arr{{10, 20}, {5, 15}, {4, 9, 11}};
 
 	auto result = mergeKsortedArrays(arr);
@@ -183,12 +194,13 @@ TEST(BinaryHeap, mergeKSortedTest) {
 	EXPECT_EQ(result, expected);
 }
 
-TEST(BinaryHeap, MedianOfStreamTest) {
-	std::vector<int> arr{12, 15, 10, 5, 8, 7, 16};
+TEST(BinaryHeap, MedianOfStreamTest)
+{
+	std::vector<int> arr{25, 7, 10, 15, 20};
 
 	std::vector<double> result = medianOfAStream(arr);
 
-	std::vector<double> expected{12, 13.5, 12, 11, 10, 9, 10};
+	std::vector<double> expected{25, 16, 10, 12.5, 15};
 
 	EXPECT_EQ(result, expected);
 }

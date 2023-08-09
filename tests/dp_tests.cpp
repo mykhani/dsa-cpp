@@ -4,29 +4,41 @@
 
 using namespace std;
 
-TEST(DynamicProgramming, FibonacciMemoizationTest) {
-    auto result = FibonacciMemo(0);
+TEST(DynamicProgramming, FibonacciMemoizationTest)
+{
+    FibonacciMemo f{100};
+
+    auto result = f(0);
     EXPECT_EQ(result, 0);
 
-    result = FibonacciMemo(1);
+    result = f(1);
     EXPECT_EQ(result, 1);
 
-    result = FibonacciMemo(5);
+    result = f(5);
     EXPECT_EQ(result, 5);
+
+    result = f(6);
+    EXPECT_EQ(result, 8);
 }
 
-TEST(DynamicProgramming, FibonacciTabulationTest) {
-    auto result = FibonacciTabulation(0);
+TEST(DynamicProgramming, FibonacciTabulationTest)
+{
+    FibonacciTabulation f{100};
+    auto result = f(0);
     EXPECT_EQ(result, 0);
 
-    result = FibonacciTabulation(1);
+    result = f(1);
     EXPECT_EQ(result, 1);
 
-    result = FibonacciTabulation(5);
+    result = f(5);
     EXPECT_EQ(result, 5);
+
+    result = f(6);
+    EXPECT_EQ(result, 8);
 }
 
-TEST(DynamicProgramming, LCSRecursiveTest) {
+TEST(DynamicProgramming, LCSRecursiveTest)
+{
     string s1{"ABCDGH"};
     string s2{"AEDFHR"};
 
@@ -35,7 +47,8 @@ TEST(DynamicProgramming, LCSRecursiveTest) {
     EXPECT_EQ(result, 3);
 }
 
-TEST(DynamicProgramming, LCSMemoTest) {
+TEST(DynamicProgramming, LCSMemoTest)
+{
     string s1{"ABCDGH"};
     string s2{"AEDFHR"};
 
@@ -44,7 +57,8 @@ TEST(DynamicProgramming, LCSMemoTest) {
     EXPECT_EQ(result, 3);
 }
 
-TEST(DynamicProgramming, LCSTabulationTest) {
+TEST(DynamicProgramming, LCSTabulationTest)
+{
     string s1{"ABCDGH"};
     string s2{"AEDFHR"};
 
@@ -53,7 +67,8 @@ TEST(DynamicProgramming, LCSTabulationTest) {
     EXPECT_EQ(result, 3);
 }
 
-TEST(DynamicProgramming, LongestPalindromicSubsequenceTest) {
+TEST(DynamicProgramming, LongestPalindromicSubsequenceTest)
+{
     std::string s{"geeksforgeeks"};
 
     int result = LongestPalindromicSubsequence(s);
@@ -61,7 +76,8 @@ TEST(DynamicProgramming, LongestPalindromicSubsequenceTest) {
     EXPECT_EQ(result, 5);
 }
 
-TEST(DynamicProgramming, ShortestCommonSupersequenceTest) {
+TEST(DynamicProgramming, ShortestCommonSupersequenceTest)
+{
     std::string s1{"geek"};
     std::string s2{"gfek"};
 
@@ -70,7 +86,8 @@ TEST(DynamicProgramming, ShortestCommonSupersequenceTest) {
     EXPECT_EQ(result, 5);
 }
 // CoinChangeCount(std::vector<int> coins, int sum) {
-TEST(DynamicProgramming, CoinChangeCountTest) {
+TEST(DynamicProgramming, CoinChangeCountTest)
+{
     std::vector<int> coins{1, 2, 3};
     int sum = 4;
 
@@ -86,7 +103,6 @@ TEST(DynamicProgramming, CoinChangeCountTest) {
     EXPECT_EQ(result, 5);
 }
 
-TEST(DynamicProgramming, DummyTest) {
-
+TEST(DynamicProgramming, DummyTest)
+{
 }
-
