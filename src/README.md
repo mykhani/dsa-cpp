@@ -13,3 +13,6 @@
 1. See how union by rank improves the time-complexity of find operation
 2. See Find with path compression
 3. Kruskal's algorithm for minimum spanning tree inside connected, undirected, and weighted graph
+
+# Binary Segment Tree
+1. Range query (sum)

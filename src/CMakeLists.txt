@@ -19,6 +19,8 @@ set(DSA_SOURCES
     dp/dp.cpp
     trie/trie.cpp
     disjoint-set/disjoint-set.cpp
+    binary-segment-tree/binary-segment-tree.cpp
+    binary-index-tree/binary-index-tree.cpp
 )
 
 # add_executable(dsa main.cpp)

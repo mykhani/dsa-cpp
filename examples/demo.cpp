@@ -859,18 +859,6 @@ int main(int argc, char *argv[])
 	cout << "Original array : " << vec1 << ", selection sorted: "
 		 << selectionSort(vec1) << endl;
 
-	vec1 = {5, 4, 3, 2, 1};
-	cout << "Original array: " << vec1 << ", insertion sorted: "
-		 << insertionSort(vec1) << endl;
-
-	vec1 = {10, 15, 20, 11, 30};
-	cout << "Original array: " << vec1 << ", merged: " << merge(vec1, 0, 2, 4)
-		 << endl;
-
-	vec1 = {5, 4, 3, 2, 1};
-	cout << "Original array: " << vec1 << ", merge sorted: " << mergeSort(vec1)
-		 << endl;
-
 	vec1 = {3, 5, 10, 10, 10, 15, 15, 20};
 	vec2 = {5, 10, 10, 15, 30};
 	cout << "Intersection of vectors " << vec1 << " and " << vec2 << " is "
@@ -902,16 +890,6 @@ int main(int argc, char *argv[])
 	vec1 = {10, 20, 30, 40};
 	cout << "Original array: " << vec1 << ", count inversions: "
 		 << countInversions(vec1) << endl;
-
-	vec1 = {3, 8, 6, 12, 10, 7};
-	cout << "Original array: " << vec1 << ", qsort using lomuto partitioning: ";
-	qSortLomuto(vec1, 0, vec1.size() - 1);
-	cout << vec1 << endl;
-
-	vec1 = {3, 8, 6, 12, 10, 7};
-	cout << "Original array: " << vec1 << ", qsort using hoare partitioning: ";
-	qSortHoare(vec1, 0, vec1.size() - 1);
-	cout << vec1 << endl;
 
 	vector<vector<int>> matrix;
 

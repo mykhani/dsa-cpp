@@ -241,6 +241,7 @@ int subsets_with_sum(vector<int> set, int sum)
     return helper(set, 0, 0, sum);
 }
 // string permutation
+// Time: O(n*n!)
 vector<string> permutations(string s)
 {
     vector<string> result;
